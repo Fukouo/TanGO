@@ -1,0 +1,17 @@
+.tools/
+.gradle/
+local.properties
+**/build/
+.idea/
+*.iml
+*.jks
+.rollback-backups/
+dist/
+*.p12
+*.keystore
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+.DS_Store

@@ -1,0 +1,17 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.tango.nihongo'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'com.tango.nihongo'
+        minSdk 26
+        targetSdk 35
+        versionCode 19
+        versionName '1.9.1'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

@@ -1,0 +1,21 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#705AA5</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#FCF9FD</item>
+        <item name="android:navigationBarColor">#F4F2FA</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">#F8F7FC</item>
+        <item name="android:alertDialogTheme">@style/TangoDialog</item>
+    </style>
+    <style name="TangoDialog" parent="android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorAccent">#705AA5</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+        <item name="android:backgroundDimAmount">0.28</item>
+        <item name="android:windowMinWidthMajor">88%</item>
+        <item name="android:windowMinWidthMinor">88%</item>
+    </style>
+</resources>
