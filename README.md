@@ -19,9 +19,11 @@
 
 ## 获取应用
 
-当前 GitHub 仓库提供源码与 [v1.9.1 版本标签](https://github.com/Fukouo/TanGO/tree/v1.9.1)，尚未提供可直接下载的 APK 附件。
+**[下载 Android 安装包](https://github.com/Fukouo/TanGO/releases/download/v1.9.1/TanGO-1.9.1-debug.apk)** · [版本说明](https://github.com/Fukouo/TanGO/releases/tag/v1.9.1) · [SHA256 校验和](https://github.com/Fukouo/TanGO/releases/download/v1.9.1/TanGO-1.9.1-SHA256.txt)
 
-可使用 Android Studio 或命令行自行构建，步骤见 [构建指南](docs/DEVELOPMENT.md)。
+下载 APK 后在 Android 设备上安装。安装包使用项目调试签名，同签名版本可覆盖更新；不要为了更新直接卸载应用，以免清除本地收藏。
+
+也可使用 Android Studio 或命令行自行构建，步骤见 [构建指南](docs/DEVELOPMENT.md)。
 
 ## 开始使用
 
