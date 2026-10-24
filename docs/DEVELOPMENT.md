@@ -85,6 +85,18 @@ node scripts/prepare-icon.cjs assets/branding/TanGO-dango-flat-v2.png
 | `PlanAuth.java` / `PlanProtocol.java` / `LoopbackLogin.java` | 登录授权、令牌处理与流式响应 |
 | `tests/` | JVM 单元检查与本地 HTTPS 集成测试 |
 
+## 接口兼容性
+
+独立 API 模式使用 Bearer 鉴权，请求基础地址下的 `/models` 和 `/chat/completions`。它按协议接入，不限定模型厂商；若列表接口不可用，可以手动填写模型名称。原生 Anthropic Messages 等不同协议尚未独立适配，需要服务提供 Chat Completions 兼容层。
+
+参考官方文档核对的接口差异：
+
+- [DeepSeek 接入说明](https://api-docs.deepseek.com/)：提供 OpenAI 兼容接口，基础地址为 `https://api.deepseek.com`。
+- [DeepSeek Chat Completions 参数](https://api-docs.deepseek.com/api/create-chat-completion/)：明确支持 `none`、`low`、`high`、`max`；兼容别名 `minimal` 映射为 `low`，`medium` / `xhigh` 映射为 `high`。当前应用没有专门压缩这些等价档位，逐级重查可能重复实际强度。
+- [Claude OpenAI 兼容层](https://platform.claude.com/docs/en/cli-sdks-libraries/libraries/openai-sdk)：支持 Chat Completions 格式，但忽略 `reasoning_effort`。其思考参数与 OpenAI 不同，当前应用没有映射这些参数。另外，未绑定工作区的部分密钥需要 `anthropic-workspace-id` 请求头，当前应用不支持自定义该请求头。
+
+兼容接口不代表所有参数或功能等价。添加供应商适配时，应分别验证鉴权、必需请求头、模型列表、文本响应、用量、实际思考档位和自动提档行为；不能仅凭请求被接受就宣称提档生效。
+
 ## 提交变更
 
 修改查词、思考强度、网络或存储逻辑时，运行相关测试，并说明真实服务和设备上的验证情况。不要将模拟测试结果描述成真实模型效果。

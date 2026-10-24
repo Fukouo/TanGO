@@ -45,7 +45,18 @@
 2. 拉取并选择模型，或手动填写服务提供的模型名称。
 3. 保存并使用 API，再选择接口支持的思考强度。
 
-基础地址可填写 `https://api.openai.com/v1`，也可填写其他兼容服务提供的地址。独立 API 的费用由对应服务计算，不包含在 ChatGPT 套餐连接中。
+这里的“兼容 OpenAI”指 **接口格式**，并不限制模型品牌。除 GPT 外，也可以配置提供相同接口的 DeepSeek、Claude 兼容层或其他模型服务。
+
+| 服务 | 基础地址示例 | 注意事项 |
+| --- | --- | --- |
+| OpenAI | `https://api.openai.com/v1` | 使用对应服务的 API Key 和模型名称 |
+| DeepSeek | `https://api.deepseek.com` | 提供 OpenAI 兼容接口；模型名称以服务列表为准 |
+| Claude 官方兼容层 | `https://api.anthropic.com/v1` | 不是原生 Messages 接口；部分 Key 需要额外工作区请求头，当前应用尚不提供该请求头配置 |
+| 其他兼容服务 | 服务提供的 HTTPS 基础地址 | 需兼容 Chat Completions 请求、响应及鉴权方式 |
+
+独立 API 的费用由对应服务计算，不包含在 ChatGPT 套餐连接中。以上地址说明接入方式，不代表当前版本已对每家服务完成真实调用测试。
+
+**思考强度存在服务差异。** 当前应用统一发送 `reasoning_effort`，尚未针对各供应商做专门映射。DeepSeek 的部分档位会映射到相同实际强度；Claude 官方兼容层会忽略该字段，因此界面提档不等于其实际思考强度提高。详情见 [接口兼容性](docs/DEVELOPMENT.md#接口兼容性)。
 
 ### 2. 查词与阅读
 
